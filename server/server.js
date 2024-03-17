@@ -9,10 +9,11 @@ app.use(express.json());
 app.get("/api/v1/restaurants", async (req, res) => {
   try {
     const results = await db.query("select * from restaurants");
-    console.log(results);
+    console.log('kkkkkkkkkkk',results);
     res.status(200).json({
       status: "success",
-      data: restaurants.rows,
+      results:results.rows.length,
+      data:{ restaurants:results.rows,}
     });
   } catch (error) {
     console.log(error);
