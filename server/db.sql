@@ -11,7 +11,7 @@
 --     location VARCHAR(50) NOT NULL,
 --     price_range INT NOT NULL
 -- );
--- -- making id as primary key
+-- making id as primary key
 -- CREATE TABLE restaurants(
 --     id BIGSERIAL NOT NULL PRIMARY KEY,
 --     name VARCHAR(50) NOT NULL,
