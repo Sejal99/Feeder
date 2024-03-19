@@ -55,6 +55,24 @@ app.post("/api/v1/restaurants",async(req,res)=>{
     console.log(error);
   }
 })
+
+//update restaurants
+
+app.put("/api/v1/restaurants/:id",async(req,res)=>{
+  try {
+    const results= await db.query("UPDATE restaurants SET name=$1,location=$2,price_range:$3 where id=$4",
+    [req.body.name, req.body.location,req.body.price_range,req.params.id] )
+    console.log(results);
+    res.status(200).json({
+      status:"success",
+      data:{  
+        restaurants:results.rows[0],//return only one object at a time that is will give only created restaurant details nothing else
+      }
+    })
+  } catch (error) {
+    
+  }
+})
 const port = process.env.port || 3001;
 app.listen(port, () => {
   console.log("server running on port", port);
