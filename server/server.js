@@ -48,7 +48,7 @@ app.post("/api/v1/restaurants",async(req,res)=>{
     res.status(200).json({
       status:"success",
       data:{  
-        restaurants:results,
+        restaurants:results.rows[0],//return only one object at a time that is will give only created restaurant details nothing else
       }
     })
   } catch (error) {
